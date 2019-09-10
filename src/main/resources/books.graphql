@@ -13,6 +13,6 @@ type Book{
 	isn: String
 	title: String
 	publisher: String
-	author: [String]
+	authors: [String]
 	publishedDate: String
 }

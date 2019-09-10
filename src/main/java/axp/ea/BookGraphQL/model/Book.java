@@ -1,7 +1,4 @@
-/**
- * 
- */
-package model;
+package axp.ea.BookGraphQL.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,6 +20,16 @@ public class Book {
 	private String[] authors;
 	private String publishedDate;
 	
+	
+	
+	/**
+	 * 
+	 */
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @param isn
 	 * @param title

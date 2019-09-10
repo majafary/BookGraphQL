@@ -1,7 +1,8 @@
-package axp.ea.springboot.GraphQLTest;
+package axp.ea.BookGraphQL;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 public class GraphQlTestApplication {

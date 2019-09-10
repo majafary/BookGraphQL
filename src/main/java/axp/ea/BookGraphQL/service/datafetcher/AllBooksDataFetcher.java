@@ -1,31 +1,30 @@
-/**
- * 
- */
-package service.datafetcher;
+package axp.ea.BookGraphQL.service.datafetcher;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import repository.BookRepository;
-import model.Book;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
+import axp.ea.BookGraphQL.model.Book;
+import axp.ea.BookGraphQL.repository.BookRepository;
 
 /**
  * @author mjafary
  *
  */
+
 @Component
-public class BookDataFetcher implements DataFetcher<Book>{
+public class AllBooksDataFetcher implements DataFetcher<List<Book>>{
 	
 	@Autowired
 	BookRepository bookRepository;
 
 	@Override
-	public Book get(DataFetchingEnvironment dataFetchingEnvironment) {
+	public List<Book> get(DataFetchingEnvironment arg0) {
 		// TODO Auto-generated method stub
-		String isn = dataFetchingEnvironment.getArgument("id");
-		return bookRepository.findById(isn).get();
+		return bookRepository.findAll();
 	}
 
 }

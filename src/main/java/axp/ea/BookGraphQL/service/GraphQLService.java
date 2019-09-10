@@ -1,8 +1,4 @@
-/**
- * 
- */
-package service;
-
+package axp.ea.BookGraphQL.service;
 
 
 import graphql.GraphQL;
@@ -18,16 +14,15 @@ import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
 
-import model.Book;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import repository.BookRepository;
-import service.datafetcher.AllBooksDataFetcher;
-import service.datafetcher.BookDataFetcher;
+import axp.ea.BookGraphQL.model.Book;
+import axp.ea.BookGraphQL.repository.BookRepository;
+import axp.ea.BookGraphQL.service.datafetcher.AllBooksDataFetcher;
+import axp.ea.BookGraphQL.service.datafetcher.BookDataFetcher;
 
 /**
  * @author mjafary
