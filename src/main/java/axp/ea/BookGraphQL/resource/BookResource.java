@@ -35,7 +35,7 @@ public class BookResource {
 	GraphQLService graphQLService;
 	
 //	@PostMapping
-	@RequestMapping(method=RequestMethod.POST, value="/graph/books")
+	@RequestMapping(method=RequestMethod.POST, value="/rest/books")
 	public ResponseEntity<Object> getAllBooks(@RequestBody String query){
 		ExecutionResult execute = graphQLService.getGraphQL().execute(query);
 		return new ResponseEntity<>(execute, HttpStatus.OK);

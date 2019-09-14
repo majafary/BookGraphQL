@@ -31,7 +31,7 @@ import axp.ea.BookGraphQL.service.datafetcher.BookDataFetcher;
 @Service
 public class GraphQLService {
 	
-	@Value("classpath:books.graphql")
+	@Value("classpath:schema.graphqls")
 	Resource resource;
 	private GraphQL graphQL;
 	@Autowired
@@ -44,8 +44,6 @@ public class GraphQLService {
 	// load schema at application startup
 	@PostConstruct
 	private void loadSchema() throws IOException{
-		
-		loadDataIntoHSQL();
 		// get the schema
 		File schemaFile = resource.getFile();
 		// parse the schema
@@ -54,21 +52,6 @@ public class GraphQLService {
 		GraphQLSchema schema = new SchemaGenerator().makeExecutableSchema(typeRegistry, wiring);
 		graphQL = GraphQL.newGraphQL(schema).build();
 	}
-
-	private void loadDataIntoHSQL() {
-		// TODO Auto-generated method stub
-		
-		// load books into books repository. this saves the books in HSQL
-		Stream.of(
-				new Book("1","Book1","Kindle", new String[] {"Author1"}, "Nov 2014"),
-				new Book("2","Book2","Kindle", new String[] {"Author2"}, "Nov 2015"),
-				new Book("3","Book3","Kindle", new String[] {"Author3"}, "Nov 2016"),
-				new Book("4","Book4","Kindle", new String[] {"Author4"}, "Nov 2017"))
-				.forEach(book -> {
-			bookRepository.save(book);
-		});
-	}
-
 	private RuntimeWiring buildRuntimeWiring() {
 		// TODO Auto-generated method stub
 		return RuntimeWiring.newRuntimeWiring()
