@@ -1,5 +1,7 @@
 package axp.ea.BookGraphQL.resource;
 
+import java.io.IOException;
+
 import graphql.ExecutionResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +17,6 @@ import axp.ea.BookGraphQL.service.GraphQLService;
 
 /**
  * @author mjafary
-//   {
-//	allBooks{
-//		title
-//		authors
-//	}
-//	book(id: "1"){
-//		title
-//		publisher
-//		authors
-//	}
-}
  */
 
 @RestController
@@ -34,16 +25,14 @@ public class BookResource {
 	@Autowired
 	GraphQLService graphQLService;
 	
-//	@PostMapping
 	@RequestMapping(method=RequestMethod.POST, value="/rest/books")
-	public ResponseEntity<Object> getAllBooks(@RequestBody String query){
+	public ResponseEntity<Object> getAllBooks(@RequestBody String query) throws IOException{
 		ExecutionResult execute = graphQLService.getGraphQL().execute(query);
 		return new ResponseEntity<>(execute, HttpStatus.OK);
 	}
+	
 	@RequestMapping("/health")
-//	public ResponseEntity<Object> getHealth(){
 	public String getHealth(){
-
 			return "OK";
 	}
 }
