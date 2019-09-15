@@ -22,6 +22,9 @@ To use this though, you need to pass the graphQL query as request parameter. Her
 
 http://localhost:8092/graphql?query=%7B%0A%20%20allBooks%20%7B%0A%20%20%20%20isn%0A%20%20%20%20title%0A%20%20%20%20publisher%0A%20%20%20%20publishedDate%0A%20%20%7D%0A%7D
 
+To do the URL encodings easily for composing my GraphQL queries for request parameter, I used
+https://www.urlencoder.io/
+
 This example also demonstrates how to use a POST Method for GraphQL and defining custom URLs. I guess this is not a great approach for read-only queries.. maybe if there was a use case where GraphQL Mutations was not a good option, then one could use this. I am still learning so more on that later when I do have more knowledge :)
 
 URL: localhost::8091/rest/books
