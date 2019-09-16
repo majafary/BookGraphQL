@@ -1,6 +1,6 @@
 Here is a sample application that demonstrates some implementations of GraphQL. It uses an HLSQL jpa repository and a graphql schema loaded from a schema file.  
   
-This example enables Graphiql viewer to expose the graphQL schema. Afte you run the applicaiton, access it as follows:  
+This example enables Graphiql viewer to expose the graphQL schema. After you run the applicaiton, access it as follows:  
 http://localhost:8091/graphiql  
 Here you can compose queries e.g.  
   
