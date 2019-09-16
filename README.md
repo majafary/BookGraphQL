@@ -13,7 +13,7 @@ Here you can compose queries e.g.
 The application exposes GraphQL at the following URL  
 http://localhost:8091/graphql  
   
-To use this though, you need to pass the graphQL query as request parameter. Here is a sample query and the equivalent URL to run the following sample GraphQL Query  
+To use this though, you need to pass the graphQL query as request parameter. Here is a sample GraphQL query and the equivalent URL to run the query  
   
 ```
 {  
