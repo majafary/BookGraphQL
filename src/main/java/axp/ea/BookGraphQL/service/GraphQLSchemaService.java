@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import axp.ea.BookGraphQL.service.datafetcher.AllBooksDataFetcher;
 import axp.ea.BookGraphQL.service.datafetcher.BookDataFetcher;
+import axp.ea.BookGraphQL.service.datafetcher.CreateBookDataFetcher;
+import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.GraphQLObjectType;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
@@ -25,18 +27,24 @@ public class GraphQLSchemaService{
 	Resource resource;
 	
 	@Autowired
-	private  AllBooksDataFetcher allBooksDataFetcher;
+	private AllBooksDataFetcher allBooksDataFetcher;
 	@Autowired
-	private  BookDataFetcher bookDataFetcher;
+	private BookDataFetcher bookDataFetcher;
+	@Autowired
+	private CreateBookDataFetcher createBookDataFetcher;
+	
 	
 	@Bean
 	public GraphQLSchema getSchema() throws IOException{
 		// get the schema
 		File schemaFile = resource.getFile();
 		// parse the schema
+
 		TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(schemaFile);
 		RuntimeWiring wiring = buildRuntimeWiring();
 		return new SchemaGenerator().makeExecutableSchema(typeRegistry, wiring);
+
+
     }
 	private  RuntimeWiring buildRuntimeWiring() {
 		// TODO Auto-generated method stub
@@ -44,6 +52,7 @@ public class GraphQLSchemaService{
 				.type("Query", typeWiring -> typeWiring
 						.dataFetcher("allBooks", allBooksDataFetcher)
 						.dataFetcher("book", bookDataFetcher))
+				.type("Mutation", typeWiring -> typeWiring.dataFetcher("createBook", createBookDataFetcher))
 						.build();
 	}
 

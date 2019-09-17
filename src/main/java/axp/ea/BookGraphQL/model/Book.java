@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
+
 /**
  * @author mjafary
  *
@@ -12,16 +14,14 @@ import javax.persistence.Table;
 @Table
 @Entity
 public class Book {
-	
+
 	@Id
 	private String isn;
 	private String title;
 	private String publisher;
 	private String[] authors;
 	private String publishedDate;
-	
-	
-	
+		
 	/**
 	 * 
 	 */
@@ -116,6 +116,5 @@ public class Book {
 	public void setPublishedDate(String publishedDate) {
 		this.publishedDate = publishedDate;
 	}
-	
 
 }

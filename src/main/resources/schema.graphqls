@@ -1,15 +1,29 @@
 schema {
- query: Query
+	query: Query
+	mutation: Mutation
 }
 
 type Query{
-allBooks: [Book]
-book(id: String): Book
+	allBooks: [Book]
+	book(id: String): Book
 
 }
 
 type Book{
 	isn: String
+	title: String
+	publisher: String
+	authors: [String]
+	publishedDate: String
+}
+
+type Mutation {
+    # Add a new book
+    createBook(input: CreateBookInput): Book!
+}
+
+input CreateBookInput{
+	id: String!
 	title: String
 	publisher: String
 	authors: [String]
