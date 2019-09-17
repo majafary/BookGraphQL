@@ -50,3 +50,22 @@ Sample Read GraphQL Query:
 	}  
 }  
 ```
+  
+-----------------------------------------------------  
+************* Update on Sep 17, 2019 ***************  
+Implementated a mutation for CreateBook. Added a mutation type and dataFetcher for this.  
+Had to manually convert the map from the datafetching environment to the Book object.  
+This may not be the best way to implement. Its another reason why frameworks are there to abstract away all this complexity.  
+But for learning, it helps.. Here is the sample mutation query you can run in Graphiql.  
+
+```
+mutation {
+  createBook(input: {id: "5", title: "Mutation Example", publisher: "MJafary", authors: ["Mansoor", "Jeff", "Shashi"], publishedDate:"today"}) {
+    isn
+    title
+    publisher
+    authors
+    publishedDate
+  }
+}
+```
